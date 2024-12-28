@@ -44,6 +44,10 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.lblMarca = new System.Windows.Forms.Label();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
+            this.cmbMarca = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.picArticulo)).BeginInit();
             this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +59,7 @@
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblCodigo.Location = new System.Drawing.Point(53, 147);
+            this.lblCodigo.Location = new System.Drawing.Point(44, 136);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(65, 22);
             this.lblCodigo.TabIndex = 11;
@@ -67,10 +71,10 @@
             this.txtCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.txtCodigo.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.txtCodigo.Location = new System.Drawing.Point(124, 145);
+            this.txtCodigo.Location = new System.Drawing.Point(115, 134);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(250, 28);
-            this.txtCodigo.TabIndex = 10;
+            this.txtCodigo.TabIndex = 0;
             // 
             // panel1
             // 
@@ -89,7 +93,7 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblNombre.Location = new System.Drawing.Point(46, 208);
+            this.lblNombre.Location = new System.Drawing.Point(37, 185);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(72, 22);
             this.lblNombre.TabIndex = 16;
@@ -101,10 +105,10 @@
             this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.txtNombre.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.txtNombre.Location = new System.Drawing.Point(124, 206);
+            this.txtNombre.Location = new System.Drawing.Point(115, 183);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(250, 28);
-            this.txtNombre.TabIndex = 15;
+            this.txtNombre.TabIndex = 1;
             // 
             // lblDescripcion
             // 
@@ -113,7 +117,7 @@
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblDescripcion.Location = new System.Drawing.Point(25, 270);
+            this.lblDescripcion.Location = new System.Drawing.Point(16, 235);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(93, 22);
             this.lblDescripcion.TabIndex = 18;
@@ -125,10 +129,10 @@
             this.txtDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.txtDescripcion.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.txtDescripcion.Location = new System.Drawing.Point(124, 268);
+            this.txtDescripcion.Location = new System.Drawing.Point(115, 233);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(250, 28);
-            this.txtDescripcion.TabIndex = 17;
+            this.txtDescripcion.TabIndex = 2;
             // 
             // lblImagen
             // 
@@ -137,7 +141,7 @@
             this.lblImagen.AutoSize = true;
             this.lblImagen.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblImagen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblImagen.Location = new System.Drawing.Point(53, 332);
+            this.lblImagen.Location = new System.Drawing.Point(44, 285);
             this.lblImagen.Name = "lblImagen";
             this.lblImagen.Size = new System.Drawing.Size(65, 22);
             this.lblImagen.TabIndex = 20;
@@ -149,10 +153,11 @@
             this.txtImagen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.txtImagen.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtImagen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.txtImagen.Location = new System.Drawing.Point(124, 330);
+            this.txtImagen.Location = new System.Drawing.Point(115, 283);
             this.txtImagen.Name = "txtImagen";
             this.txtImagen.Size = new System.Drawing.Size(250, 28);
-            this.txtImagen.TabIndex = 19;
+            this.txtImagen.TabIndex = 3;
+            this.txtImagen.Leave += new System.EventHandler(this.txtImagen_Leave);
             // 
             // lblPrecio
             // 
@@ -161,7 +166,7 @@
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblPrecio.Location = new System.Drawing.Point(62, 395);
+            this.lblPrecio.Location = new System.Drawing.Point(53, 439);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(57, 22);
             this.lblPrecio.TabIndex = 22;
@@ -173,17 +178,17 @@
             this.txtPrecio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.txtPrecio.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.txtPrecio.Location = new System.Drawing.Point(124, 393);
+            this.txtPrecio.Location = new System.Drawing.Point(114, 437);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(250, 28);
-            this.txtPrecio.TabIndex = 21;
+            this.txtPrecio.TabIndex = 6;
             // 
             // picArticulo
             // 
             this.picArticulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picArticulo.Location = new System.Drawing.Point(396, 201);
+            this.picArticulo.Location = new System.Drawing.Point(387, 195);
             this.picArticulo.Name = "picArticulo";
-            this.picArticulo.Size = new System.Drawing.Size(164, 142);
+            this.picArticulo.Size = new System.Drawing.Size(176, 170);
             this.picArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picArticulo.TabIndex = 23;
             this.picArticulo.TabStop = false;
@@ -198,10 +203,10 @@
             this.btnGuardar.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(138, 481);
+            this.btnGuardar.Location = new System.Drawing.Point(296, 496);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(138, 43);
-            this.btnGuardar.TabIndex = 24;
+            this.btnGuardar.TabIndex = 7;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -217,10 +222,10 @@
             this.btnCancelar.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(138)))), ((int)(((byte)(66)))));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(308, 481);
+            this.btnCancelar.Location = new System.Drawing.Point(132, 496);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(138, 43);
-            this.btnCancelar.TabIndex = 25;
+            this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -249,12 +254,62 @@
             this.pnlHeader.Size = new System.Drawing.Size(594, 94);
             this.pnlHeader.TabIndex = 13;
             // 
+            // lblMarca
+            // 
+            this.lblMarca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMarca.AutoSize = true;
+            this.lblMarca.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMarca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.lblMarca.Location = new System.Drawing.Point(52, 389);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(58, 22);
+            this.lblMarca.TabIndex = 27;
+            this.lblMarca.Text = "Marca";
+            // 
+            // lblCategoria
+            // 
+            this.lblCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.lblCategoria.Location = new System.Drawing.Point(24, 337);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(86, 22);
+            this.lblCategoria.TabIndex = 26;
+            this.lblCategoria.Text = "Categoría";
+            // 
+            // cmbCategoria
+            // 
+            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategoria.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Location = new System.Drawing.Point(116, 335);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(249, 30);
+            this.cmbCategoria.TabIndex = 4;
+            // 
+            // cmbMarca
+            // 
+            this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMarca.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbMarca.FormattingEnabled = true;
+            this.cmbMarca.Location = new System.Drawing.Point(115, 385);
+            this.cmbMarca.Name = "cmbMarca";
+            this.cmbMarca.Size = new System.Drawing.Size(249, 30);
+            this.cmbMarca.TabIndex = 5;
+            // 
             // frmNuevoArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(584, 561);
+            this.Controls.Add(this.cmbMarca);
+            this.Controls.Add(this.cmbCategoria);
+            this.Controls.Add(this.lblMarca);
+            this.Controls.Add(this.lblCategoria);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
@@ -303,5 +358,9 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Panel pnlHeader;
+        private System.Windows.Forms.Label lblMarca;
+        private System.Windows.Forms.Label lblCategoria;
+        private System.Windows.Forms.ComboBox cmbCategoria;
+        private System.Windows.Forms.ComboBox cmbMarca;
     }
 }

@@ -44,6 +44,25 @@ namespace negocio
                 lector = comando.ExecuteReader();
             }
             catch (Exception ex) { throw ex; }
+        } 
+
+
+        // Método para ejecutar acciones a la base de datos que no sean de lectura 
+        public void ejecutarAccion() {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+
+        // Método para setear @parámetros en la query
+        public void setearParametro(string param, object obj)
+        {
+            comando.Parameters.AddWithValue(param, obj);
         }
 
 

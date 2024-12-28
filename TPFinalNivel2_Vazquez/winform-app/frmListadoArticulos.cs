@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,6 +27,7 @@ namespace winform_app
             try
             {
                 cargarListado();
+                cargarImagen(listaArticulo[0].ImagenUrl);
             }
             catch (Exception ex)
             {
@@ -46,7 +48,13 @@ namespace winform_app
                 ocultarColumnas();
 
                 //dgvListadoArticulos.Columns["Descripcion"].Width = 600;
+                dgvListadoArticulos.Columns["Editar"].Width = 70;
+                dgvListadoArticulos.Columns["Eliminar"].Width = 70;
+                dgvListadoArticulos.Columns["Ver"].Width = 70;
 
+                dgvListadoArticulos.Columns["Editar"].DisplayIndex = 11;
+                dgvListadoArticulos.Columns["Eliminar"].DisplayIndex = 11;
+                dgvListadoArticulos.Columns["Ver"].DisplayIndex = 11;
             }
             catch (Exception ex) { throw ex; }
         }
@@ -61,11 +69,50 @@ namespace winform_app
         }
 
 
+        // Cargar la imagen de cada articulo en el PictureBox
+        public void cargarImagen(string img)
+        {
+            try { 
+                picArticulo.Load(img); 
+            }
+            
+            catch (Exception ex) { 
+                picArticulo.Load("https://i.ibb.co/rvgQKmz/no-product-image.jpg"); 
+            }
+        }
+
+        private void dgvListadoArticulos_SelectionChanged(object sender, EventArgs e)
+        {
+            Articulo articuloSeleccionado = (Articulo)dgvListadoArticulos.CurrentRow.DataBoundItem;
+            cargarImagen(articuloSeleccionado.ImagenUrl);
+        }
+
+
         // Form para cargar un nuevo artículo
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Form nuevoArticulo = new frmNuevoArticulo();
             nuevoArticulo.ShowDialog();
+            cargarListado();
+        }
+
+
+        // Editar y eliminar apretando los íconos del DataGridView
+        private void dgvListadoArticulos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //frmNuevoArticulo modificarArticulo = new frmNuevoArticulo();
+
+            //if (dgvListadoArticulos.Columns[e.ColumnIndex].Name == "Editar")
+            //{
+            //    Form nuevoArticulo = new frmNuevoArticulo();
+            //    nuevoArticulo.ShowDialog();
+            //}
+
+            //if (dgvListadoArticulos.Columns[e.ColumnIndex].Name == "Eliminar")
+            //{
+
+            //}
+
         }
     }
 }
