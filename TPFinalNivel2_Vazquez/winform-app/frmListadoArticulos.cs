@@ -119,17 +119,30 @@ namespace winform_app
         }
 
 
+        // Método para actualizar
+        private void actualizar(int id)
+        {
+            try
+            {
+                Articulo articuloSeleccionado;
+                articuloSeleccionado = (Articulo)dgvListadoArticulos.CurrentRow.DataBoundItem;
+
+                frmNuevoArticulo modificar = new frmNuevoArticulo(articuloSeleccionado);
+                modificar.ShowDialog();
+                
+                cargarListado();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
 
         // Editar y eliminar apretando los íconos del DataGridView
         private void dgvListadoArticulos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //frmNuevoArticulo modificarArticulo = new frmNuevoArticulo();
-
-            //if (dgvListadoArticulos.Columns[e.ColumnIndex].Name == "Editar")
-            //{
-            //    Form nuevoArticulo = new frmNuevoArticulo();
-            //    nuevoArticulo.ShowDialog();
-            //}
+            if (dgvListadoArticulos.Columns[e.ColumnIndex].Name == "Editar")
+            {
+                actualizar(e.RowIndex);
+            }
 
             if (dgvListadoArticulos.Columns[e.ColumnIndex].Name == "Eliminar")
             {

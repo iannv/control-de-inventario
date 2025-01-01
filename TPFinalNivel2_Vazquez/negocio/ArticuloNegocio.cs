@@ -57,7 +57,8 @@ namespace negocio
         {
             try
             {
-                datos.consulta("INSERT INTO ARTICULOS(Codigo, Nombre, Descripcion, ImagenUrl, IdCategoria, IdMarca, Precio) VALUES (@codigo, @nombre, @descripcion, @img, @categoria, @marca, @precio)");
+                datos.consulta("INSERT INTO ARTICULOS(Codigo, Nombre, Descripcion, ImagenUrl, IdCategoria, IdMarca, Precio) " +
+                    "VALUES (@codigo, @nombre, @descripcion, @img, @categoria, @marca, @precio)");
                 datos.setearParametro("@codigo", articulo.Codigo);
                 datos.setearParametro("@nombre", articulo.Nombre);
                 datos.setearParametro("@descripcion", articulo.Descripcion);
@@ -65,6 +66,7 @@ namespace negocio
                 datos.setearParametro("@categoria", articulo.IdCategoria.Id);
                 datos.setearParametro("@marca", articulo.IdMarca.Id);
                 datos.setearParametro("@precio", articulo.Precio);
+
                 datos.ejecutarAccion();
             }
             catch (Exception ex) { throw ex; }
@@ -72,11 +74,26 @@ namespace negocio
         }
 
 
-
-
-        public void modificarArticulo(int id)
+        public void modificarArticulo(Articulo articulo)
         {
+            try
+            {
+                datos.consulta("UPDATE ARTICULOS SET " +
+                    "Codigo = @cod, Nombre = @nombre, Descripcion = @desc, ImagenUrl = @img, IdCategoria = @cat, " +
+                    "IdMarca = @marca, Precio = @precio " +
+                    "WHERE Id = @id");
+                datos.setearParametro("cod", articulo.Codigo);
+                datos.setearParametro("@nombre", articulo.Nombre);
+                datos.setearParametro("@desc", articulo.Descripcion);
+                datos.setearParametro("@img", articulo.ImagenUrl);
+                datos.setearParametro("@cat", articulo.IdCategoria.Id);
+                datos.setearParametro("@marca", articulo.IdMarca.Id);
+                datos.setearParametro("@precio", articulo.Precio);
+                datos.setearParametro("@id", articulo.Id);
 
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex) { throw ex; }
         }
 
 
