@@ -97,6 +97,29 @@ namespace winform_app
         }
 
 
+        // Método para eliminar
+        private void eliminar(int id)
+        {
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            Articulo articuloSeleccionado;
+
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("¿Desea eliminar definitivamente?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (dialogResult == DialogResult.Yes) {
+                    articuloSeleccionado = (Articulo)dgvListadoArticulos.CurrentRow.DataBoundItem;
+                    articuloNegocio.eliminarArticulo(articuloSeleccionado.Id);
+                    cargarListado();
+                }
+
+            }
+            catch (Exception ex) { throw ex; }
+            
+        }
+
+
+
         // Editar y eliminar apretando los íconos del DataGridView
         private void dgvListadoArticulos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -108,11 +131,13 @@ namespace winform_app
             //    nuevoArticulo.ShowDialog();
             //}
 
-            //if (dgvListadoArticulos.Columns[e.ColumnIndex].Name == "Eliminar")
-            //{
-
-            //}
+            if (dgvListadoArticulos.Columns[e.ColumnIndex].Name == "Eliminar")
+            {
+                eliminar(e.RowIndex);
+            }
 
         }
+
+        
     }
 }
