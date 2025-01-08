@@ -122,9 +122,9 @@ namespace winform_app
         // Método para actualizar
         private void actualizar(int id)
         {
+            Articulo articuloSeleccionado;
             try
             {
-                Articulo articuloSeleccionado;
                 articuloSeleccionado = (Articulo)dgvListadoArticulos.CurrentRow.DataBoundItem;
 
                 frmNuevoArticulo modificar = new frmNuevoArticulo(articuloSeleccionado);
@@ -135,8 +135,22 @@ namespace winform_app
             catch (Exception ex) { throw ex; }
         }
 
+        // Método para ver el detalle del artículo
+        private void ver(int id)
+        {
+            Articulo articuloSeleccionado;
+            try
+            {
+                articuloSeleccionado = (Articulo)dgvListadoArticulos.CurrentRow.DataBoundItem;
 
-        // Editar y eliminar apretando los íconos del DataGridView
+                Form verArticulo = new frmVerDetalleArticulo(articuloSeleccionado);
+                verArticulo.ShowDialog();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+
+        // Editar, eliminar y ver detalle del artículo apretando los íconos del DataGridView
         private void dgvListadoArticulos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvListadoArticulos.Columns[e.ColumnIndex].Name == "Editar")
@@ -149,8 +163,16 @@ namespace winform_app
                 eliminar(e.RowIndex);
             }
 
+            if (dgvListadoArticulos.Columns[e.ColumnIndex].Name == "Ver")
+            {
+                ver(e.RowIndex);
+            }
         }
 
-        
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> articulos;
+
+        }
     }
 }

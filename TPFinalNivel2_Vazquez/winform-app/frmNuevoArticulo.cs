@@ -49,8 +49,8 @@ namespace winform_app
                 cmbMarca.DisplayMember = "Descripcion";
 
                 // Los ComboBox se inicializan sin selección
-                //cmbCategoria.SelectedIndex = -1;
-                //cmbMarca.SelectedIndex = -1;
+                cmbCategoria.SelectedIndex = -1;
+                cmbMarca.SelectedIndex = -1;
 
                 // Precargamos los datos para el form de actualización
                 if (articulo != null) {
@@ -99,10 +99,7 @@ namespace winform_app
 
                     articuloNegocio.agregarArticulo(articulo);
                     MessageBox.Show(articulo.Nombre + " agregado exitosamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 }
-
-
                 this.Close();
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }
