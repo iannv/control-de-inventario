@@ -88,6 +88,7 @@
             this.txtBuscar.Size = new System.Drawing.Size(304, 28);
             this.txtBuscar.TabIndex = 0;
             this.txtBuscar.Text = "Buscar";
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // pnlHeader
             // 

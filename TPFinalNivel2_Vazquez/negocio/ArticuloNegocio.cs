@@ -97,6 +97,19 @@ namespace negocio
         }
 
 
+        public void verArticulo(int id)
+        {
+            try
+            {
+                datos.consulta("SELECT Id, Codigo, Nombre, Descripcion, ImagenUrl, IdMarca, IdCategoria, Precio " +
+                    "FROM ARTICULOS WHERE Id = @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+
         public void eliminarArticulo(int id) {
             try
             {

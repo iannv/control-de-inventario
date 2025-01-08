@@ -73,6 +73,9 @@
     <EmbeddedResource Include="frmNuevoArticulo.resx">
       <DependentUpon>frmNuevoArticulo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmVerDetalleArticulo.resx">
+      <DependentUpon>frmVerDetalleArticulo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -81,6 +84,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -104,6 +108,10 @@
       <Project>{974d539c-098c-4e52-89fb-7b433f91dc0c}</Project>
       <Name>negocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\no-product-image.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
