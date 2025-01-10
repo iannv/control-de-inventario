@@ -79,18 +79,18 @@
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblCodigo.Location = new System.Drawing.Point(500, 258);
+            this.lblCodigo.Location = new System.Drawing.Point(500, 264);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(66, 22);
+            this.lblCodigo.Size = new System.Drawing.Size(71, 22);
             this.lblCodigo.TabIndex = 10;
-            this.lblCodigo.Text = "Código";
+            this.lblCodigo.Text = "Código:";
             // 
             // lblCodigoA
             // 
             this.lblCodigoA.AutoSize = true;
             this.lblCodigoA.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblCodigoA.Location = new System.Drawing.Point(627, 258);
+            this.lblCodigoA.ForeColor = System.Drawing.Color.Gray;
+            this.lblCodigoA.Location = new System.Drawing.Point(627, 264);
             this.lblCodigoA.Name = "lblCodigoA";
             this.lblCodigoA.Size = new System.Drawing.Size(270, 22);
             this.lblCodigoA.TabIndex = 11;
@@ -100,8 +100,8 @@
             // 
             this.lblNombreA.AutoSize = true;
             this.lblNombreA.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblNombreA.Location = new System.Drawing.Point(627, 309);
+            this.lblNombreA.ForeColor = System.Drawing.Color.Gray;
+            this.lblNombreA.Location = new System.Drawing.Point(627, 315);
             this.lblNombreA.Name = "lblNombreA";
             this.lblNombreA.Size = new System.Drawing.Size(270, 22);
             this.lblNombreA.TabIndex = 13;
@@ -112,18 +112,18 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblNombre.Location = new System.Drawing.Point(500, 309);
+            this.lblNombre.Location = new System.Drawing.Point(500, 315);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(73, 22);
+            this.lblNombre.Size = new System.Drawing.Size(78, 22);
             this.lblNombre.TabIndex = 12;
-            this.lblNombre.Text = "Nombre";
+            this.lblNombre.Text = "Nombre:";
             // 
             // lblDescripcionA
             // 
             this.lblDescripcionA.AutoSize = true;
             this.lblDescripcionA.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcionA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblDescripcionA.Location = new System.Drawing.Point(627, 361);
+            this.lblDescripcionA.ForeColor = System.Drawing.Color.Gray;
+            this.lblDescripcionA.Location = new System.Drawing.Point(627, 367);
             this.lblDescripcionA.Name = "lblDescripcionA";
             this.lblDescripcionA.Size = new System.Drawing.Size(270, 22);
             this.lblDescripcionA.TabIndex = 15;
@@ -134,18 +134,18 @@
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblDescripcion.Location = new System.Drawing.Point(500, 361);
+            this.lblDescripcion.Location = new System.Drawing.Point(500, 367);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(101, 22);
+            this.lblDescripcion.Size = new System.Drawing.Size(106, 22);
             this.lblDescripcion.TabIndex = 14;
-            this.lblDescripcion.Text = "Descripción";
+            this.lblDescripcion.Text = "Descripción:";
             // 
             // lblPrecioA
             // 
             this.lblPrecioA.AutoSize = true;
             this.lblPrecioA.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblPrecioA.Location = new System.Drawing.Point(627, 412);
+            this.lblPrecioA.ForeColor = System.Drawing.Color.Gray;
+            this.lblPrecioA.Location = new System.Drawing.Point(627, 418);
             this.lblPrecioA.Name = "lblPrecioA";
             this.lblPrecioA.Size = new System.Drawing.Size(270, 22);
             this.lblPrecioA.TabIndex = 19;
@@ -156,15 +156,15 @@
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblPrecio.Location = new System.Drawing.Point(500, 412);
+            this.lblPrecio.Location = new System.Drawing.Point(500, 418);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(58, 22);
+            this.lblPrecio.Size = new System.Drawing.Size(63, 22);
             this.lblPrecio.TabIndex = 18;
-            this.lblPrecio.Text = "Precio";
+            this.lblPrecio.Text = "Precio:";
             // 
             // picArticulo
             // 
-            this.picArticulo.Location = new System.Drawing.Point(87, 230);
+            this.picArticulo.Location = new System.Drawing.Point(87, 236);
             this.picArticulo.Name = "picArticulo";
             this.picArticulo.Size = new System.Drawing.Size(353, 335);
             this.picArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -175,8 +175,8 @@
             // 
             this.lblMarcaA.AutoSize = true;
             this.lblMarcaA.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMarcaA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblMarcaA.Location = new System.Drawing.Point(627, 464);
+            this.lblMarcaA.ForeColor = System.Drawing.Color.Gray;
+            this.lblMarcaA.Location = new System.Drawing.Point(627, 470);
             this.lblMarcaA.Name = "lblMarcaA";
             this.lblMarcaA.Size = new System.Drawing.Size(270, 22);
             this.lblMarcaA.TabIndex = 22;
@@ -187,18 +187,18 @@
             this.lblMarca.AutoSize = true;
             this.lblMarca.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMarca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblMarca.Location = new System.Drawing.Point(500, 464);
+            this.lblMarca.Location = new System.Drawing.Point(500, 470);
             this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(59, 22);
+            this.lblMarca.Size = new System.Drawing.Size(64, 22);
             this.lblMarca.TabIndex = 21;
-            this.lblMarca.Text = "Marca";
+            this.lblMarca.Text = "Marca:";
             // 
             // lblCategoriaA
             // 
             this.lblCategoriaA.AutoSize = true;
             this.lblCategoriaA.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoriaA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblCategoriaA.Location = new System.Drawing.Point(627, 516);
+            this.lblCategoriaA.ForeColor = System.Drawing.Color.Gray;
+            this.lblCategoriaA.Location = new System.Drawing.Point(627, 522);
             this.lblCategoriaA.Name = "lblCategoriaA";
             this.lblCategoriaA.Size = new System.Drawing.Size(270, 22);
             this.lblCategoriaA.TabIndex = 24;
@@ -209,11 +209,11 @@
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblCategoria.Location = new System.Drawing.Point(500, 516);
+            this.lblCategoria.Location = new System.Drawing.Point(500, 522);
             this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(86, 22);
+            this.lblCategoria.Size = new System.Drawing.Size(91, 22);
             this.lblCategoria.TabIndex = 23;
-            this.lblCategoria.Text = "Categoría";
+            this.lblCategoria.Text = "Categoría:";
             // 
             // panel3
             // 
