@@ -52,6 +52,14 @@ namespace winform_app
                 dgvListadoArticulos.Columns["Eliminar"].Width = 70;
                 dgvListadoArticulos.Columns["Ver"].Width = 70;
 
+                //dgvListadoArticulos.Columns["CODIGO"].DisplayIndex = 0;
+                //dgvListadoArticulos.Columns["NOMBRE"].DisplayIndex = 0;
+                //dgvListadoArticulos.Columns["DESCRIPCION"].DisplayIndex = 0;
+                //dgvListadoArticulos.Columns["CATEGORIA"].DisplayIndex = 0;
+                //dgvListadoArticulos.Columns["MARCA"].DisplayIndex = 0;
+                //dgvListadoArticulos.Columns["PRECIO"].DisplayIndex = 0;
+
+
                 dgvListadoArticulos.Columns["Editar"].DisplayIndex = 11;
                 dgvListadoArticulos.Columns["Eliminar"].DisplayIndex = 11;
                 dgvListadoArticulos.Columns["Ver"].DisplayIndex = 11;
@@ -156,6 +164,7 @@ namespace winform_app
             if (dgvListadoArticulos.Columns[e.ColumnIndex].Name == "Editar")
             {
                 actualizar(e.RowIndex);
+                //this.Cursor = Cursors.Hand;
             }
 
             if (dgvListadoArticulos.Columns[e.ColumnIndex].Name == "Eliminar")
@@ -171,8 +180,27 @@ namespace winform_app
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            List<Articulo> articulos;
+            List<Articulo> listaFiltrada;
+            string buscar = txtBuscar.Text;
 
+            if (buscar != null)
+            {
+                listaFiltrada = listaArticulo.FindAll(a=>
+                a.Nombre.ToUpper().Contains(buscar.ToUpper()) || 
+                a.Codigo.ToUpper().Contains(buscar.ToUpper()) ||
+                a.Descripcion.ToUpper().Contains(buscar.ToUpper()) ||
+                a.IdCategoria.ToString().ToUpper().Contains(buscar.ToUpper()) ||
+                a.IdMarca.ToString().ToUpper().Contains(buscar.ToUpper()) ||
+                a.Precio.ToString().ToUpper().Contains(buscar.ToUpper())
+               );
+            }
+            else
+            {
+                listaFiltrada = listaArticulo;
+            }
+            dgvListadoArticulos.DataSource = null;
+            dgvListadoArticulos.DataSource = listaFiltrada;
+            ocultarColumnas();
         }
     }
 }
