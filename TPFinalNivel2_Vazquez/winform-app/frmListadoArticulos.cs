@@ -20,6 +20,13 @@ namespace winform_app
         public frmListadoArticulos()
         {
             InitializeComponent();
+
+            // Iniciar los ComboBox cargados
+            cmbCampo.Items.Add("Código");
+            cmbCampo.Items.Add("Precio");
+            cmbCampo.Items.Add("Nombre");
+            cmbCampo.Items.Add("Categoría");
+            cmbCampo.Items.Add("Marca");
         }
 
         private void frmListadoArticulos_Load(object sender, EventArgs e)
@@ -47,18 +54,11 @@ namespace winform_app
                 dgvListadoArticulos.DataSource = listaArticulo;
                 ocultarColumnas();
 
-                //dgvListadoArticulos.Columns["Descripcion"].Width = 600;
+                //dgvListadoArticulos.Columns["Nombre"].Width = 250;
+                dgvListadoArticulos.Columns["Descripcion"].Width = 280;
                 dgvListadoArticulos.Columns["Editar"].Width = 70;
                 dgvListadoArticulos.Columns["Eliminar"].Width = 70;
                 dgvListadoArticulos.Columns["Ver"].Width = 70;
-
-                //dgvListadoArticulos.Columns["CODIGO"].DisplayIndex = 0;
-                //dgvListadoArticulos.Columns["NOMBRE"].DisplayIndex = 0;
-                //dgvListadoArticulos.Columns["DESCRIPCION"].DisplayIndex = 0;
-                //dgvListadoArticulos.Columns["CATEGORIA"].DisplayIndex = 0;
-                //dgvListadoArticulos.Columns["MARCA"].DisplayIndex = 0;
-                //dgvListadoArticulos.Columns["PRECIO"].DisplayIndex = 0;
-
 
                 dgvListadoArticulos.Columns["Editar"].DisplayIndex = 11;
                 dgvListadoArticulos.Columns["Eliminar"].DisplayIndex = 11;
@@ -120,10 +120,8 @@ namespace winform_app
                     articuloNegocio.eliminarArticulo(articuloSeleccionado.Id);
                     cargarListado();
                 }
-
             }
-            catch (Exception ex) { throw ex; }
-            
+            catch (Exception ex) { throw ex; }            
         }
 
 
@@ -142,6 +140,7 @@ namespace winform_app
             }
             catch (Exception ex) { throw ex; }
         }
+
 
         // Método para ver el detalle del artículo
         private void ver(int id)
@@ -164,7 +163,6 @@ namespace winform_app
             if (dgvListadoArticulos.Columns[e.ColumnIndex].Name == "Editar")
             {
                 actualizar(e.RowIndex);
-                //this.Cursor = Cursors.Hand;
             }
 
             if (dgvListadoArticulos.Columns[e.ColumnIndex].Name == "Eliminar")
@@ -178,6 +176,8 @@ namespace winform_app
             }
         }
 
+
+        // Filtra en el buscador
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             List<Articulo> listaFiltrada;
@@ -201,6 +201,103 @@ namespace winform_app
             dgvListadoArticulos.DataSource = null;
             dgvListadoArticulos.DataSource = listaFiltrada;
             ocultarColumnas();
+
+            dgvListadoArticulos.Columns["Editar"].DisplayIndex = 11;
+            dgvListadoArticulos.Columns["Eliminar"].DisplayIndex = 11;
+            dgvListadoArticulos.Columns["Ver"].DisplayIndex = 11;
+        }
+
+
+        // Filtro avanzado con opciones en ComboBox
+        private void cmbCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            validarSelectedItem();
+  
+            string opcion = cmbCampo.SelectedItem.ToString();
+
+            if (opcion == "Precio") {
+                txtFiltro.Text = "";
+                cmbCriterio.Items.Clear();
+                cmbCriterio.Items.Add("Menor a");
+                cmbCriterio.Items.Add("Igual a");
+                cmbCriterio.Items.Add("Mayor a");
+            }
+            else
+            {
+                txtFiltro.Text = "";
+                cmbCriterio.Items.Clear();
+                cmbCriterio.Items.Add("Comienza con");
+                cmbCriterio.Items.Add("Termina con");
+                cmbCriterio.Items.Add("Contiene");
+            }
+        }
+
+        private void cmbCriterio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            validarSelectedItem();
+        }
+
+
+
+        // Método para buscar en la base de datos el filtro avanzado
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio articulo = new ArticuloNegocio();
+
+            try
+            {
+                if (cmbCampo.SelectedIndex == -1 || cmbCriterio.SelectedIndex == -1)
+                {
+                    txtFiltro.Enabled = false;
+                    MessageBox.Show("Debe seleccionar un campo y un criterio antes de filtrar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else {
+                    txtFiltro.Enabled = true;
+                }
+
+                string campo = cmbCampo.SelectedItem.ToString();
+                string criterio = cmbCriterio.SelectedItem.ToString();
+                string filtro = txtFiltro.Text;
+
+                dgvListadoArticulos.DataSource = articulo.filtrarArticulos(campo, criterio, filtro);
+
+                if (cmbCampo.SelectedIndex == -1 && cmbCriterio.SelectedIndex == -1)
+                {
+                }
+                else
+                {
+                    txtFiltro.Enabled = true;
+                }
+
+
+                // Valida si no se encontraron registros luego de filtrar para mostrar un mensaje
+                if (dgvListadoArticulos.Rows.Count == 0)
+                {
+                    lblSinRegistro.Visible = true;
+                }
+                else {
+                    lblSinRegistro.Visible = false;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
+
+        // Valida si está seleccionado un item del ComboBox
+        private void validarSelectedItem()
+        {
+            if (cmbCampo.SelectedIndex == -1 || cmbCriterio.SelectedIndex == -1)
+            {
+                txtFiltro.Enabled = false;
+            }
+            else
+            {
+                txtFiltro.Enabled = true;
+            }
         }
     }
 }
