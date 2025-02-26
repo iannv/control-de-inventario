@@ -67,6 +67,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validaciones\Validaciones.cs" />
     <EmbeddedResource Include="frmListadoArticulos.resx">
       <DependentUpon>frmListadoArticulos.cs</DependentUpon>
     </EmbeddedResource>
