@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
@@ -20,6 +21,8 @@ namespace winform_app
         public frmListadoArticulos()
         {
             InitializeComponent();
+
+            lblMjeSeleccionarItem.Text = "";
 
             // Iniciar los ComboBox cargados
             cmbCampo.Items.Add("Código");
@@ -80,12 +83,14 @@ namespace winform_app
         // Cargar la imagen de cada articulo en el PictureBox
         public void cargarImagen(string img)
         {
-            try { 
-                picArticulo.Load(img); 
+            try
+            {
+                picArticulo.Load(img);
             }
-            
-            catch (Exception ex) { 
-                picArticulo.Load("https://i.ibb.co/rvgQKmz/no-product-image.jpg"); 
+
+            catch (Exception ex)
+            {
+                picArticulo.Load("https://i.ibb.co/rvgQKmz/no-product-image.jpg");
             }
         }
 
@@ -115,13 +120,14 @@ namespace winform_app
             {
                 DialogResult dialogResult = MessageBox.Show("¿Desea eliminar definitivamente?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if (dialogResult == DialogResult.Yes) {
+                if (dialogResult == DialogResult.Yes)
+                {
                     articuloSeleccionado = (Articulo)dgvListadoArticulos.CurrentRow.DataBoundItem;
                     articuloNegocio.eliminarArticulo(articuloSeleccionado.Id);
                     cargarListado();
                 }
             }
-            catch (Exception ex) { throw ex; }            
+            catch (Exception ex) { throw ex; }
         }
 
 
@@ -135,7 +141,7 @@ namespace winform_app
 
                 frmNuevoArticulo modificar = new frmNuevoArticulo(articuloSeleccionado);
                 modificar.ShowDialog();
-                
+
                 cargarListado();
             }
             catch (Exception ex) { throw ex; }
@@ -185,8 +191,8 @@ namespace winform_app
 
             if (buscar != null)
             {
-                listaFiltrada = listaArticulo.FindAll(a=>
-                a.Nombre.ToUpper().Contains(buscar.ToUpper()) || 
+                listaFiltrada = listaArticulo.FindAll(a =>
+                a.Nombre.ToUpper().Contains(buscar.ToUpper()) ||
                 a.Codigo.ToUpper().Contains(buscar.ToUpper()) ||
                 a.Descripcion.ToUpper().Contains(buscar.ToUpper()) ||
                 a.IdCategoria.ToString().ToUpper().Contains(buscar.ToUpper()) ||
@@ -211,29 +217,32 @@ namespace winform_app
         // Filtro avanzado con opciones en ComboBox
         private void cmbCampo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            validarSelectedItem();
-  
             string opcion = cmbCampo.SelectedItem.ToString();
 
-            if (opcion == "Precio") {
-                txtFiltro.Text = "";
-                cmbCriterio.Items.Clear();
+            cmbCriterio.Items.Clear();
+            txtFiltro.Text = "";
+
+            if (opcion == "Precio")
+            {
                 cmbCriterio.Items.Add("Menor a");
                 cmbCriterio.Items.Add("Igual a");
                 cmbCriterio.Items.Add("Mayor a");
             }
             else
             {
-                txtFiltro.Text = "";
-                cmbCriterio.Items.Clear();
                 cmbCriterio.Items.Add("Comienza con");
                 cmbCriterio.Items.Add("Termina con");
                 cmbCriterio.Items.Add("Contiene");
             }
+
+            // Valida si está seleccionado un item
+            validarSelectedItem();
         }
+
 
         private void cmbCriterio_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Valida si está seleccionado un item
             validarSelectedItem();
         }
 
@@ -246,58 +255,105 @@ namespace winform_app
 
             try
             {
-                if (cmbCampo.SelectedIndex == -1 || cmbCriterio.SelectedIndex == -1)
-                {
-                    txtFiltro.Enabled = false;
-                    MessageBox.Show("Debe seleccionar un campo y un criterio antes de filtrar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else {
-                    txtFiltro.Enabled = true;
-                }
-
                 string campo = cmbCampo.SelectedItem.ToString();
                 string criterio = cmbCriterio.SelectedItem.ToString();
                 string filtro = txtFiltro.Text;
 
                 dgvListadoArticulos.DataSource = articulo.filtrarArticulos(campo, criterio, filtro);
 
-                if (cmbCampo.SelectedIndex == -1 && cmbCriterio.SelectedIndex == -1)
-                {
-                }
-                else
-                {
-                    txtFiltro.Enabled = true;
-                }
-
-
                 // Valida si no se encontraron registros luego de filtrar para mostrar un mensaje
                 if (dgvListadoArticulos.Rows.Count == 0)
                 {
                     lblSinRegistro.Visible = true;
                 }
-                else {
+                else
+                {
                     lblSinRegistro.Visible = false;
                 }
+
+
+                // Valida si está seleccionado un item
+                if (validarSelectedItem()) return;
+
+                // Valida si el campo filtro está vacío
+                validarCamposNull(txtFiltro.Text);
             }
             catch (Exception)
             {
                 throw;
             }
-
         }
 
 
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////// VALIDACIONES ///////////////////////////////////////////////////////
+
+
         // Valida si está seleccionado un item del ComboBox
-        private void validarSelectedItem()
+        private bool validarSelectedItem()
         {
             if (cmbCampo.SelectedIndex == -1 || cmbCriterio.SelectedIndex == -1)
             {
                 txtFiltro.Enabled = false;
+                lblMjeSeleccionarItem.Visible = true;
+                lblMjeSeleccionarItem.Text = "Debe seleccionar un campo y un criterio";
+
+                return true;
             }
-            else
+
+            txtFiltro.Enabled = true;
+            txtFiltro.BackColor = Color.White;
+            lblMjeSeleccionarItem.Visible = false;
+
+            return false;
+        }
+
+
+        // Validar campos nulos o vacíos
+        private void validarCamposNull(string param)
+        {
+            if (string.IsNullOrEmpty(param))
             {
-                txtFiltro.Enabled = true;
+                lblMjeSeleccionarItem.Visible = true;
+                lblMjeSeleccionarItem.Text = "El campo filtro está vacío";
             }
+        }
+
+
+        // Validar campo numérico
+        private bool validarIsNumber(string param)
+        {
+            foreach (char c in param)
+            {
+                if (!(char.IsNumber(c)))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
+        // Validar el filtro avanzado
+        private void validarFiltrosAvanzados()
+        {
+            // Campo PRECIO
+            if (cmbCampo.SelectedItem.ToString() == "Precio")
+            {
+                foreach (char c in txtFiltro.Text)
+                {
+                    validarCamposNull(txtFiltro.Text);
+                    if (!(char.IsNumber(c)))
+                    {
+                        MessageBox.Show("SOLO NUMEROS POR FAVOR");
+                        txtFiltro.Clear();
+                    }
+                }
+            }
+
+
         }
     }
 }

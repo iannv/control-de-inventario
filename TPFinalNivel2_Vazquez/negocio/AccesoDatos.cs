@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace negocio
 {
@@ -43,7 +44,10 @@ namespace negocio
                 conexion.Open();
                 lector = comando.ExecuteReader();
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en la ejecución de la consulta: " + ex.Message);
+            }
         } 
 
 
