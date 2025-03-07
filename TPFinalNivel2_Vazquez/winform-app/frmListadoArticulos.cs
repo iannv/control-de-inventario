@@ -66,6 +66,8 @@ namespace winform_app
                 dgvListadoArticulos.Columns["Editar"].DisplayIndex = 11;
                 dgvListadoArticulos.Columns["Eliminar"].DisplayIndex = 11;
                 dgvListadoArticulos.Columns["Ver"].DisplayIndex = 11;
+
+                sinResultados();
             }
             catch (Exception ex) { throw ex; }
         }
@@ -211,6 +213,8 @@ namespace winform_app
             dgvListadoArticulos.Columns["Editar"].DisplayIndex = 11;
             dgvListadoArticulos.Columns["Eliminar"].DisplayIndex = 11;
             dgvListadoArticulos.Columns["Ver"].DisplayIndex = 11;
+
+            sinResultados();
         }
 
 
@@ -255,28 +259,19 @@ namespace winform_app
 
             try
             {
+                if (!validarFiltrosAvanzados()) return;
+                if (validarCamposNull(txtFiltro.Text)) return;
+
                 string campo = cmbCampo.SelectedItem.ToString();
                 string criterio = cmbCriterio.SelectedItem.ToString();
                 string filtro = txtFiltro.Text;
 
                 dgvListadoArticulos.DataSource = articulo.filtrarArticulos(campo, criterio, filtro);
 
-                // Valida si no se encontraron registros luego de filtrar para mostrar un mensaje
-                if (dgvListadoArticulos.Rows.Count == 0)
-                {
-                    lblSinRegistro.Visible = true;
-                }
-                else
-                {
-                    lblSinRegistro.Visible = false;
-                }
-
-
                 // Valida si está seleccionado un item
                 if (validarSelectedItem()) return;
 
-                // Valida si el campo filtro está vacío
-                validarCamposNull(txtFiltro.Text);
+                sinResultados();
             }
             catch (Exception)
             {
@@ -285,11 +280,42 @@ namespace winform_app
         }
 
 
+        // Cargar todos los artículos luego de las búsquedas
+        private void btnVerTodos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtFiltro.Clear();
+                cargarListado();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////// VALIDACIONES ///////////////////////////////////////////////////////
 
+        // Valida si no se encontraron registros luego de filtrar para mostrar un mensaje
+        private void sinResultados()
+        {
+            if (dgvListadoArticulos.Rows.Count == 0)
+            {
+                lblSinRegistro.Visible = true;
+                picArticulo.Visible = false;
+            }
+            else
+            {
+                lblSinRegistro.Visible = false;
+                picArticulo.Visible = true;
+            }
+        }
 
         // Valida si está seleccionado un item del ComboBox
         private bool validarSelectedItem()
@@ -312,48 +338,49 @@ namespace winform_app
 
 
         // Validar campos nulos o vacíos
-        private void validarCamposNull(string param)
+        private bool validarCamposNull(string param)
         {
             if (string.IsNullOrEmpty(param))
             {
                 lblMjeSeleccionarItem.Visible = true;
                 lblMjeSeleccionarItem.Text = "El campo filtro está vacío";
+                return true; 
             }
+
+            lblMjeSeleccionarItem.Visible = false; 
+            return false;
         }
 
 
         // Validar campo numérico
         private bool validarIsNumber(string param)
         {
-            foreach (char c in param)
-            {
-                if (!(char.IsNumber(c)))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return param.All(char.IsDigit); // Más eficiente
         }
 
 
         // Validar el filtro avanzado
-        private void validarFiltrosAvanzados()
+        private bool validarFiltrosAvanzados()
         {
             // Campo PRECIO
-            if (cmbCampo.SelectedItem.ToString() == "Precio")
+            if (cmbCampo.SelectedItem != null && cmbCampo.SelectedItem.ToString() == "Precio")
             {
-                foreach (char c in txtFiltro.Text)
+                if (string.IsNullOrEmpty(txtFiltro.Text))
                 {
-                    validarCamposNull(txtFiltro.Text);
-                    if (!(char.IsNumber(c)))
-                    {
-                        MessageBox.Show("SOLO NUMEROS POR FAVOR");
-                        txtFiltro.Clear();
-                    }
+                    lblMjeSeleccionarItem.Visible = true;
+                    lblMjeSeleccionarItem.Text = "El campo filtro está vacío";
+                    return false;
+                }
+
+                if (!validarIsNumber(txtFiltro.Text))
+                {
+                    lblMjeSeleccionarItem.Visible = true;
+                    lblMjeSeleccionarItem.Text = "Deben ser sólo números";
+                    txtFiltro.Clear();
+                    return false;
                 }
             }
-
-
+            return true;
         }
     }
 }

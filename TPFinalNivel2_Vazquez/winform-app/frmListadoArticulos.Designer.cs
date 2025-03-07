@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoArticulos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.lblFiltrarPor = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.txtFiltro = new System.Windows.Forms.TextBox();
@@ -51,6 +50,8 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblSinRegistro = new System.Windows.Forms.Label();
             this.lblMjeSeleccionarItem = new System.Windows.Forms.Label();
+            this.btnVerTodos = new System.Windows.Forms.Button();
+            this.lblBuscar = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picArticulo)).BeginInit();
@@ -66,31 +67,19 @@
             this.lblTitulo.Location = new System.Drawing.Point(419, 17);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(331, 45);
-            this.lblTitulo.TabIndex = 1;
+            this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Control de Inventario";
-            // 
-            // lblFiltrarPor
-            // 
-            this.lblFiltrarPor.AutoSize = true;
-            this.lblFiltrarPor.Font = new System.Drawing.Font("Tw Cen MT", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltrarPor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblFiltrarPor.Location = new System.Drawing.Point(12, 178);
-            this.lblFiltrarPor.Name = "lblFiltrarPor";
-            this.lblFiltrarPor.Size = new System.Drawing.Size(84, 22);
-            this.lblFiltrarPor.TabIndex = 2;
-            this.lblFiltrarPor.Text = "Filtrar por";
             // 
             // txtBuscar
             // 
             this.txtBuscar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.txtBuscar.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.txtBuscar.Location = new System.Drawing.Point(427, 83);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(304, 28);
             this.txtBuscar.TabIndex = 0;
-            this.txtBuscar.Text = "Buscar";
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // pnlHeader
@@ -98,6 +87,7 @@
             this.pnlHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.pnlHeader.Controls.Add(this.lblBuscar);
             this.pnlHeader.Controls.Add(this.txtBuscar);
             this.pnlHeader.Controls.Add(this.lblTitulo);
             this.pnlHeader.Location = new System.Drawing.Point(-5, -4);
@@ -112,7 +102,7 @@
             this.txtFiltro.Enabled = false;
             this.txtFiltro.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.txtFiltro.Location = new System.Drawing.Point(630, 179);
+            this.txtFiltro.Location = new System.Drawing.Point(513, 179);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(136, 25);
             this.txtFiltro.TabIndex = 5;
@@ -120,9 +110,9 @@
             // lblCampo
             // 
             this.lblCampo.AutoSize = true;
-            this.lblCampo.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCampo.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCampo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblCampo.Location = new System.Drawing.Point(110, 179);
+            this.lblCampo.Location = new System.Drawing.Point(10, 180);
             this.lblCampo.Name = "lblCampo";
             this.lblCampo.Size = new System.Drawing.Size(66, 22);
             this.lblCampo.TabIndex = 5;
@@ -131,9 +121,9 @@
             // lblCriterio
             // 
             this.lblCriterio.AutoSize = true;
-            this.lblCriterio.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCriterio.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCriterio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblCriterio.Location = new System.Drawing.Point(340, 179);
+            this.lblCriterio.Location = new System.Drawing.Point(232, 180);
             this.lblCriterio.Name = "lblCriterio";
             this.lblCriterio.Size = new System.Drawing.Size(67, 22);
             this.lblCriterio.TabIndex = 6;
@@ -142,9 +132,9 @@
             // lblFiltro
             // 
             this.lblFiltro.AutoSize = true;
-            this.lblFiltro.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltro.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblFiltro.Location = new System.Drawing.Point(574, 179);
+            this.lblFiltro.Location = new System.Drawing.Point(457, 180);
             this.lblFiltro.Name = "lblFiltro";
             this.lblFiltro.Size = new System.Drawing.Size(50, 22);
             this.lblFiltro.TabIndex = 7;
@@ -156,7 +146,7 @@
             this.cmbCriterio.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCriterio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.cmbCriterio.FormattingEnabled = true;
-            this.cmbCriterio.Location = new System.Drawing.Point(413, 178);
+            this.cmbCriterio.Location = new System.Drawing.Point(305, 178);
             this.cmbCriterio.Name = "cmbCriterio";
             this.cmbCriterio.Size = new System.Drawing.Size(136, 27);
             this.cmbCriterio.TabIndex = 6;
@@ -168,7 +158,7 @@
             this.cmbCampo.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCampo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.cmbCampo.FormattingEnabled = true;
-            this.cmbCampo.Location = new System.Drawing.Point(181, 178);
+            this.cmbCampo.Location = new System.Drawing.Point(81, 178);
             this.cmbCampo.Name = "cmbCampo";
             this.cmbCampo.Size = new System.Drawing.Size(136, 27);
             this.cmbCampo.TabIndex = 7;
@@ -184,10 +174,10 @@
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(976, 169);
+            this.btnAgregar.Location = new System.Drawing.Point(985, 168);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnAgregar.Size = new System.Drawing.Size(166, 43);
+            this.btnAgregar.Size = new System.Drawing.Size(165, 43);
             this.btnAgregar.TabIndex = 8;
             this.btnAgregar.Text = "Nuevo Artículo";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -217,14 +207,14 @@
             this.dgvListadoArticulos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvListadoArticulos.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dgvListadoArticulos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(160)))), ((int)(((byte)(97)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(160)))), ((int)(((byte)(97)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListadoArticulos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(160)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(160)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListadoArticulos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvListadoArticulos.ColumnHeadersHeight = 46;
             this.dgvListadoArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvListadoArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -234,18 +224,18 @@
             this.dgvListadoArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvListadoArticulos.EnableHeadersVisualStyles = false;
             this.dgvListadoArticulos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(152)))), ((int)(((byte)(175)))));
-            this.dgvListadoArticulos.Location = new System.Drawing.Point(12, 241);
+            this.dgvListadoArticulos.Location = new System.Drawing.Point(4, 241);
             this.dgvListadoArticulos.Margin = new System.Windows.Forms.Padding(10);
             this.dgvListadoArticulos.MultiSelect = false;
             this.dgvListadoArticulos.Name = "dgvListadoArticulos";
             this.dgvListadoArticulos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvListadoArticulos.RowHeadersVisible = false;
             this.dgvListadoArticulos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Tw Cen MT", 12F);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.dgvListadoArticulos.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tw Cen MT", 12F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.dgvListadoArticulos.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvListadoArticulos.RowTemplate.Height = 40;
             this.dgvListadoArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListadoArticulos.Size = new System.Drawing.Size(923, 551);
@@ -292,10 +282,10 @@
             this.btnBuscar.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(799, 169);
+            this.btnBuscar.Location = new System.Drawing.Point(660, 169);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnBuscar.Size = new System.Drawing.Size(86, 43);
+            this.btnBuscar.Size = new System.Drawing.Size(84, 43);
             this.btnBuscar.TabIndex = 18;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -321,14 +311,44 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMjeSeleccionarItem.AutoSize = true;
-            this.lblMjeSeleccionarItem.Font = new System.Drawing.Font("Tw Cen MT", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMjeSeleccionarItem.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMjeSeleccionarItem.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblMjeSeleccionarItem.Location = new System.Drawing.Point(574, 212);
+            this.lblMjeSeleccionarItem.Location = new System.Drawing.Point(457, 213);
             this.lblMjeSeleccionarItem.Name = "lblMjeSeleccionarItem";
-            this.lblMjeSeleccionarItem.Size = new System.Drawing.Size(65, 20);
+            this.lblMjeSeleccionarItem.Size = new System.Drawing.Size(61, 19);
             this.lblMjeSeleccionarItem.TabIndex = 20;
             this.lblMjeSeleccionarItem.Text = "Mensaje";
             this.lblMjeSeleccionarItem.Visible = false;
+            // 
+            // btnVerTodos
+            // 
+            this.btnVerTodos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnVerTodos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVerTodos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerTodos.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerTodos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.btnVerTodos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVerTodos.Location = new System.Drawing.Point(755, 169);
+            this.btnVerTodos.Name = "btnVerTodos";
+            this.btnVerTodos.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnVerTodos.Size = new System.Drawing.Size(135, 43);
+            this.btnVerTodos.TabIndex = 21;
+            this.btnVerTodos.Text = "Mostrar todo";
+            this.btnVerTodos.UseVisualStyleBackColor = false;
+            this.btnVerTodos.Click += new System.EventHandler(this.btnVerTodos_Click);
+            // 
+            // lblBuscar
+            // 
+            this.lblBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lblBuscar.Location = new System.Drawing.Point(363, 86);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(57, 22);
+            this.lblBuscar.TabIndex = 22;
+            this.lblBuscar.Text = "Buscar";
             // 
             // frmListadoArticulos
             // 
@@ -336,6 +356,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1154, 811);
+            this.Controls.Add(this.btnVerTodos);
             this.Controls.Add(this.lblMjeSeleccionarItem);
             this.Controls.Add(this.lblSinRegistro);
             this.Controls.Add(this.btnBuscar);
@@ -348,7 +369,6 @@
             this.Controls.Add(this.lblCriterio);
             this.Controls.Add(this.lblCampo);
             this.Controls.Add(this.txtFiltro);
-            this.Controls.Add(this.lblFiltrarPor);
             this.Controls.Add(this.dgvListadoArticulos);
             this.Controls.Add(this.pnlHeader);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
@@ -369,7 +389,6 @@
 
         #endregion
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label lblFiltrarPor;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.TextBox txtFiltro;
@@ -391,5 +410,7 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label lblSinRegistro;
         private System.Windows.Forms.Label lblMjeSeleccionarItem;
+        private System.Windows.Forms.Button btnVerTodos;
+        private System.Windows.Forms.Label lblBuscar;
     }
 }
