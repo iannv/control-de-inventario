@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using negocio;
+using System.Globalization;
 
 namespace winform_app
 {
@@ -33,6 +34,7 @@ namespace winform_app
             lblTitulo.Text = "Modificar artículo";
         }
 
+
         private void frmNuevoArticulo_Load(object sender, EventArgs e)
         {
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
@@ -52,8 +54,9 @@ namespace winform_app
                 cmbCategoria.SelectedIndex = -1;
                 cmbMarca.SelectedIndex = -1;
 
-                // Precargamos los datos para el form de actualización
-                if (articulo != null) {
+                // Precargar los datos para el form de actualización
+                if (articulo != null)
+                {
                     txtCodigo.Text = articulo.Codigo;
                     txtNombre.Text = articulo.Nombre;
                     txtDescripcion.Text = articulo.Descripcion;
@@ -70,11 +73,15 @@ namespace winform_app
             catch (Exception ex) { MessageBox.Show("Error al cargar los ComboBox", ex.Message); }
         }
 
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (articulo == null){
+                if (!validarCampos()) return;
+
+                if (articulo == null)
+                {
                     articulo = new Articulo();
                 }
 
@@ -84,41 +91,56 @@ namespace winform_app
                 articulo.ImagenUrl = txtImagen.Text;
                 articulo.IdCategoria = (Categoria)cmbCategoria.SelectedItem;
                 articulo.IdMarca = (Marca)cmbMarca.SelectedItem;
-                articulo.Precio = Math.Round(decimal.Parse(txtPrecio.Text), 2);
 
-                if (decimal.TryParse(txtPrecio.Text, out decimal precio))
-                    articulo.Precio = Math.Round(precio, 2);
+                // Asegurarse que sean 2 decimales (se ingresen por el usuario o no) con punto o coma
+                string precioTxt = txtPrecio.Text.Trim();
+                precioTxt = precioTxt.Replace(',', '.');
+                if (decimal.TryParse(precioTxt, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal precio))
+                {
+                    if (precio > 0)
+                    {
+                        precio = Math.Round(precio, 2);
+                        articulo.Precio = precio;
+                        txtPrecio.Text = precio % 1 == 0 ? precio.ToString("0") : precio.ToString("0.00");
+                    }
+                    else
+                    {
+                        MessageBox.Show("El precio debe ser mayor a cero", "Ingreso inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtPrecio.Clear();
+                        txtPrecio.Focus();
+                        return;
+                    }
+                }
                 else
-                    MessageBox.Show("Ingrese un precio válido.");
+                {
+                    lblMjeError.Visible = true;
+                    lblMjeError.Text = "El campo precio debe contener sólo números";
+                    txtPrecio.Clear();
+                    txtPrecio.Focus();
+                    return;
+                }
 
 
+                // Modificar o agregar artículo
                 if (articulo.Id != 0)
                 {
+                    if (!validarCampos()) return;
                     articuloNegocio.modificarArticulo(articulo);
                     MessageBox.Show(articulo.Nombre + " modificado exitosamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    if (validarCampos())
-                    {
-                        MessageBox.Show("SOLO NUMEROS");
-                    }
-                    else
-                    {
-                        // Los ComboBox se inicializan sin selección
-                        cmbCategoria.SelectedIndex = -1;
-                        cmbMarca.SelectedIndex = -1;
-                        validarCampos();
+                    cmbCategoria.SelectedIndex = -1;
+                    cmbMarca.SelectedIndex = -1;
 
-                        articuloNegocio.agregarArticulo(articulo);
-                        MessageBox.Show(articulo.Nombre + " agregado exitosamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    }
+                    articuloNegocio.agregarArticulo(articulo);
+                    MessageBox.Show(articulo.Nombre + " agregado exitosamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 this.Close();
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -143,8 +165,9 @@ namespace winform_app
         // Se carga la url de la imagen en el PictureBox al salir del campo de texto
         private void txtImagen_Leave(object sender, EventArgs e)
         {
-            cargarImagen(txtImagen.Text);   
+            cargarImagen(txtImagen.Text);
         }
+
 
 
         // ///////////////////////////////////////////////////////////////////////////////////////
@@ -152,46 +175,33 @@ namespace winform_app
         // //////////////////////////////////// VALIDACIONES /////////////////////////////////////
 
         // Validar campos nulos o vacíos
-        private bool validarCamposNull(string param)
-        {
-            if (string.IsNullOrEmpty(param))
-            {
-                lblMjeError.Visible = true;
-                lblMjeError.Text = "No puede haber campos vacíos";
-                return true;
-            }
-
-            lblMjeError.Visible = false;
-            return false;
-        }
-
-
-        // Validar campo numérico
-        private bool validarIsNumber(string param)
-        {
-            return param.All(char.IsDigit);
-        }
-
-
-        // Validar el filtro avanzado
         private bool validarCampos()
         {
-            // Campo PRECIO
-            if (txtPrecio.Text != null)
-            {
-                if (validarCamposNull(txtPrecio.Text))
-                {
-                    return false;
-                }
+            TextBox[] textBox = { txtCodigo, txtNombre, txtDescripcion, txtImagen, txtPrecio };
+            ComboBox[] comboBox = { cmbCategoria, cmbMarca };
 
-                if (!validarIsNumber(txtPrecio.Text))
+            foreach (TextBox txt in textBox)
+            {
+                if (string.IsNullOrEmpty(txt.Text))
                 {
                     lblMjeError.Visible = true;
-                    lblMjeError.Text = "Deben ser sólo números";
-                    txtPrecio.Clear();
+                    lblMjeError.Text = "Los campos marcados (*) son obligatorios";
+                    txt.Focus();
                     return false;
                 }
             }
+
+            foreach (ComboBox cb in comboBox)
+            {
+                if (cb.SelectedIndex == -1)
+                {
+                    lblMjeError.Visible = true;
+                    lblMjeError.Text = "Seleccione la categoría y marca del artículo";
+                    cb.Focus();
+                    return false;
+                }
+            }
+            lblMjeError.Visible = false;
             return true;
         }
     }

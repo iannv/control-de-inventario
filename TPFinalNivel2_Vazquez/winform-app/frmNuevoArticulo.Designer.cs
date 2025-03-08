@@ -49,6 +49,13 @@
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.lblMjeError = new System.Windows.Forms.Label();
+            this.lblAsterisco7 = new System.Windows.Forms.Label();
+            this.lblAsterisco6 = new System.Windows.Forms.Label();
+            this.lblAsterisco5 = new System.Windows.Forms.Label();
+            this.lblAsterisco4 = new System.Windows.Forms.Label();
+            this.lblAsterisco3 = new System.Windows.Forms.Label();
+            this.lblAsterisco2 = new System.Windows.Forms.Label();
+            this.lblAsterisco1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picArticulo)).BeginInit();
             this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
@@ -187,7 +194,7 @@
             // picArticulo
             // 
             this.picArticulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picArticulo.Location = new System.Drawing.Point(642, 221);
+            this.picArticulo.Location = new System.Drawing.Point(645, 221);
             this.picArticulo.Name = "picArticulo";
             this.picArticulo.Size = new System.Drawing.Size(287, 265);
             this.picArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -199,7 +206,6 @@
             this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(138)))), ((int)(((byte)(66)))));
             this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -217,8 +223,7 @@
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(138)))), ((int)(((byte)(66)))));
-            this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
-            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
+            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(138)))), ((int)(((byte)(66)))));
@@ -307,12 +312,103 @@
             this.lblMjeError.AutoSize = true;
             this.lblMjeError.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMjeError.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblMjeError.Location = new System.Drawing.Point(203, 533);
+            this.lblMjeError.Location = new System.Drawing.Point(203, 530);
             this.lblMjeError.Name = "lblMjeError";
             this.lblMjeError.Size = new System.Drawing.Size(61, 19);
             this.lblMjeError.TabIndex = 28;
             this.lblMjeError.Text = "Mensaje";
             this.lblMjeError.Visible = false;
+            // 
+            // lblAsterisco7
+            // 
+            this.lblAsterisco7.AutoSize = true;
+            this.lblAsterisco7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisco7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(63)))), ((int)(((byte)(23)))));
+            this.lblAsterisco7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblAsterisco7.Location = new System.Drawing.Point(582, 488);
+            this.lblAsterisco7.Name = "lblAsterisco7";
+            this.lblAsterisco7.Size = new System.Drawing.Size(21, 26);
+            this.lblAsterisco7.TabIndex = 43;
+            this.lblAsterisco7.Text = "*";
+            this.lblAsterisco7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblAsterisco6
+            // 
+            this.lblAsterisco6.AutoSize = true;
+            this.lblAsterisco6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisco6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(63)))), ((int)(((byte)(23)))));
+            this.lblAsterisco6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblAsterisco6.Location = new System.Drawing.Point(582, 434);
+            this.lblAsterisco6.Name = "lblAsterisco6";
+            this.lblAsterisco6.Size = new System.Drawing.Size(21, 26);
+            this.lblAsterisco6.TabIndex = 42;
+            this.lblAsterisco6.Text = "*";
+            this.lblAsterisco6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblAsterisco5
+            // 
+            this.lblAsterisco5.AutoSize = true;
+            this.lblAsterisco5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisco5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(63)))), ((int)(((byte)(23)))));
+            this.lblAsterisco5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblAsterisco5.Location = new System.Drawing.Point(582, 384);
+            this.lblAsterisco5.Name = "lblAsterisco5";
+            this.lblAsterisco5.Size = new System.Drawing.Size(21, 26);
+            this.lblAsterisco5.TabIndex = 41;
+            this.lblAsterisco5.Text = "*";
+            this.lblAsterisco5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblAsterisco4
+            // 
+            this.lblAsterisco4.AutoSize = true;
+            this.lblAsterisco4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisco4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(63)))), ((int)(((byte)(23)))));
+            this.lblAsterisco4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblAsterisco4.Location = new System.Drawing.Point(582, 335);
+            this.lblAsterisco4.Name = "lblAsterisco4";
+            this.lblAsterisco4.Size = new System.Drawing.Size(21, 26);
+            this.lblAsterisco4.TabIndex = 40;
+            this.lblAsterisco4.Text = "*";
+            this.lblAsterisco4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblAsterisco3
+            // 
+            this.lblAsterisco3.AutoSize = true;
+            this.lblAsterisco3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisco3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(63)))), ((int)(((byte)(23)))));
+            this.lblAsterisco3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblAsterisco3.Location = new System.Drawing.Point(582, 283);
+            this.lblAsterisco3.Name = "lblAsterisco3";
+            this.lblAsterisco3.Size = new System.Drawing.Size(21, 26);
+            this.lblAsterisco3.TabIndex = 39;
+            this.lblAsterisco3.Text = "*";
+            this.lblAsterisco3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblAsterisco2
+            // 
+            this.lblAsterisco2.AutoSize = true;
+            this.lblAsterisco2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisco2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(63)))), ((int)(((byte)(23)))));
+            this.lblAsterisco2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblAsterisco2.Location = new System.Drawing.Point(582, 234);
+            this.lblAsterisco2.Name = "lblAsterisco2";
+            this.lblAsterisco2.Size = new System.Drawing.Size(21, 26);
+            this.lblAsterisco2.TabIndex = 38;
+            this.lblAsterisco2.Text = "*";
+            this.lblAsterisco2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblAsterisco1
+            // 
+            this.lblAsterisco1.AutoSize = true;
+            this.lblAsterisco1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisco1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(63)))), ((int)(((byte)(23)))));
+            this.lblAsterisco1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblAsterisco1.Location = new System.Drawing.Point(582, 186);
+            this.lblAsterisco1.Name = "lblAsterisco1";
+            this.lblAsterisco1.Size = new System.Drawing.Size(21, 26);
+            this.lblAsterisco1.TabIndex = 37;
+            this.lblAsterisco1.Text = "*";
+            this.lblAsterisco1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmNuevoArticulo
             // 
@@ -320,6 +416,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(984, 681);
+            this.Controls.Add(this.lblAsterisco7);
+            this.Controls.Add(this.lblAsterisco6);
+            this.Controls.Add(this.lblAsterisco5);
+            this.Controls.Add(this.lblAsterisco4);
+            this.Controls.Add(this.lblAsterisco3);
+            this.Controls.Add(this.lblAsterisco2);
+            this.Controls.Add(this.lblAsterisco1);
             this.Controls.Add(this.lblMjeError);
             this.Controls.Add(this.cmbMarca);
             this.Controls.Add(this.cmbCategoria);
@@ -378,5 +481,12 @@
         private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.ComboBox cmbMarca;
         private System.Windows.Forms.Label lblMjeError;
+        private System.Windows.Forms.Label lblAsterisco7;
+        private System.Windows.Forms.Label lblAsterisco6;
+        private System.Windows.Forms.Label lblAsterisco5;
+        private System.Windows.Forms.Label lblAsterisco4;
+        private System.Windows.Forms.Label lblAsterisco3;
+        private System.Windows.Forms.Label lblAsterisco2;
+        private System.Windows.Forms.Label lblAsterisco1;
     }
 }

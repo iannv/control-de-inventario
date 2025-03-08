@@ -54,10 +54,10 @@
             // 
             this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.lblTitulo.Font = new System.Drawing.Font("Tw Cen MT", 30F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
+            this.lblTitulo.Font = new System.Drawing.Font("Tw Cen MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lblTitulo.Location = new System.Drawing.Point(420, 101);
+            this.lblTitulo.Location = new System.Drawing.Point(523, 101);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(139, 47);
             this.lblTitulo.TabIndex = 1;
@@ -71,7 +71,7 @@
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.pnlHeader.Location = new System.Drawing.Point(0, -1);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(992, 60);
+            this.pnlHeader.Size = new System.Drawing.Size(1192, 60);
             this.pnlHeader.TabIndex = 6;
             // 
             // lblCodigo
@@ -218,9 +218,9 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(200)))), ((int)(((byte)(150)))));
-            this.panel3.Location = new System.Drawing.Point(40, 183);
+            this.panel3.Location = new System.Drawing.Point(12, 59);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(908, 2);
+            this.panel3.Size = new System.Drawing.Size(1135, 126);
             this.panel3.TabIndex = 26;
             // 
             // panel2
@@ -230,7 +230,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.panel2.Location = new System.Drawing.Point(0, 624);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(992, 60);
+            this.panel2.Size = new System.Drawing.Size(1192, 60);
             this.panel2.TabIndex = 27;
             // 
             // panel1
@@ -240,7 +240,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.panel1.Location = new System.Drawing.Point(0, 59);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(18, 572);
+            this.panel1.Size = new System.Drawing.Size(38, 572);
             this.panel1.TabIndex = 7;
             // 
             // panel4
@@ -248,9 +248,9 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.panel4.Location = new System.Drawing.Point(966, 59);
+            this.panel4.Location = new System.Drawing.Point(1144, 59);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(18, 572);
+            this.panel4.Size = new System.Drawing.Size(40, 572);
             this.panel4.TabIndex = 28;
             // 
             // frmVerDetalleArticulo
@@ -258,7 +258,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(984, 681);
+            this.ClientSize = new System.Drawing.Size(1184, 681);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -278,11 +278,13 @@
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.panel3);
-            this.MaximumSize = new System.Drawing.Size(1000, 720);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1200, 720);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1000, 720);
+            this.MinimumSize = new System.Drawing.Size(1200, 720);
             this.Name = "frmVerDetalleArticulo";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalle del artículo";
             this.Load += new System.EventHandler(this.VerDetalleArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picArticulo)).EndInit();
