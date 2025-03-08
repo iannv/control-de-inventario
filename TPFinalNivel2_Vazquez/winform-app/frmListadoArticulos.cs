@@ -355,7 +355,7 @@ namespace winform_app
         // Validar campo numérico
         private bool validarIsNumber(string param)
         {
-            return param.All(char.IsDigit); // Más eficiente
+            return param.All(char.IsDigit);
         }
 
 
