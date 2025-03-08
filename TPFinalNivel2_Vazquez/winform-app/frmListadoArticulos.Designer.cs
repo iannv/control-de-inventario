@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoArticulos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.lblBuscar = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.lblCampo = new System.Windows.Forms.Label();
             this.lblCriterio = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.lblSinRegistro = new System.Windows.Forms.Label();
             this.lblMjeSeleccionarItem = new System.Windows.Forms.Label();
             this.btnVerTodos = new System.Windows.Forms.Button();
-            this.lblBuscar = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picArticulo)).BeginInit();
@@ -79,7 +79,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(427, 83);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(304, 28);
-            this.txtBuscar.TabIndex = 0;
+            this.txtBuscar.TabIndex = 1;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // pnlHeader
@@ -95,6 +95,19 @@
             this.pnlHeader.Size = new System.Drawing.Size(1168, 132);
             this.pnlHeader.TabIndex = 4;
             // 
+            // lblBuscar
+            // 
+            this.lblBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lblBuscar.Location = new System.Drawing.Point(363, 86);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(57, 22);
+            this.lblBuscar.TabIndex = 22;
+            this.lblBuscar.Text = "Buscar";
+            // 
             // txtFiltro
             // 
             this.txtFiltro.BackColor = System.Drawing.Color.Gainsboro;
@@ -105,7 +118,7 @@
             this.txtFiltro.Location = new System.Drawing.Point(513, 179);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(136, 25);
-            this.txtFiltro.TabIndex = 5;
+            this.txtFiltro.TabIndex = 10;
             // 
             // lblCampo
             // 
@@ -126,7 +139,7 @@
             this.lblCriterio.Location = new System.Drawing.Point(232, 180);
             this.lblCriterio.Name = "lblCriterio";
             this.lblCriterio.Size = new System.Drawing.Size(67, 22);
-            this.lblCriterio.TabIndex = 6;
+            this.lblCriterio.TabIndex = 7;
             this.lblCriterio.Text = "Criterio";
             // 
             // lblFiltro
@@ -137,7 +150,7 @@
             this.lblFiltro.Location = new System.Drawing.Point(457, 180);
             this.lblFiltro.Name = "lblFiltro";
             this.lblFiltro.Size = new System.Drawing.Size(50, 22);
-            this.lblFiltro.TabIndex = 7;
+            this.lblFiltro.TabIndex = 9;
             this.lblFiltro.Text = "Filtro";
             // 
             // cmbCriterio
@@ -149,7 +162,7 @@
             this.cmbCriterio.Location = new System.Drawing.Point(305, 178);
             this.cmbCriterio.Name = "cmbCriterio";
             this.cmbCriterio.Size = new System.Drawing.Size(136, 27);
-            this.cmbCriterio.TabIndex = 6;
+            this.cmbCriterio.TabIndex = 8;
             this.cmbCriterio.SelectedIndexChanged += new System.EventHandler(this.cmbCriterio_SelectedIndexChanged);
             // 
             // cmbCampo
@@ -161,7 +174,7 @@
             this.cmbCampo.Location = new System.Drawing.Point(81, 178);
             this.cmbCampo.Name = "cmbCampo";
             this.cmbCampo.Size = new System.Drawing.Size(136, 27);
-            this.cmbCampo.TabIndex = 7;
+            this.cmbCampo.TabIndex = 6;
             this.cmbCampo.SelectedIndexChanged += new System.EventHandler(this.cmbCampo_SelectedIndexChanged);
             // 
             // btnAgregar
@@ -178,7 +191,7 @@
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnAgregar.Size = new System.Drawing.Size(165, 43);
-            this.btnAgregar.TabIndex = 8;
+            this.btnAgregar.TabIndex = 13;
             this.btnAgregar.Text = "Nuevo Artículo";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -207,14 +220,14 @@
             this.dgvListadoArticulos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvListadoArticulos.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dgvListadoArticulos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(160)))), ((int)(((byte)(97)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(160)))), ((int)(((byte)(97)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListadoArticulos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(160)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(160)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListadoArticulos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListadoArticulos.ColumnHeadersHeight = 46;
             this.dgvListadoArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvListadoArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -231,15 +244,15 @@
             this.dgvListadoArticulos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvListadoArticulos.RowHeadersVisible = false;
             this.dgvListadoArticulos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tw Cen MT", 12F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.dgvListadoArticulos.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tw Cen MT", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.dgvListadoArticulos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvListadoArticulos.RowTemplate.Height = 40;
             this.dgvListadoArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListadoArticulos.Size = new System.Drawing.Size(923, 551);
-            this.dgvListadoArticulos.TabIndex = 9;
+            this.dgvListadoArticulos.TabIndex = 13;
             this.dgvListadoArticulos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListadoArticulos_CellClick);
             this.dgvListadoArticulos.SelectionChanged += new System.EventHandler(this.dgvListadoArticulos_SelectionChanged);
             // 
@@ -286,7 +299,7 @@
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnBuscar.Size = new System.Drawing.Size(84, 43);
-            this.btnBuscar.TabIndex = 18;
+            this.btnBuscar.TabIndex = 11;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -316,7 +329,7 @@
             this.lblMjeSeleccionarItem.Location = new System.Drawing.Point(457, 213);
             this.lblMjeSeleccionarItem.Name = "lblMjeSeleccionarItem";
             this.lblMjeSeleccionarItem.Size = new System.Drawing.Size(61, 19);
-            this.lblMjeSeleccionarItem.TabIndex = 20;
+            this.lblMjeSeleccionarItem.TabIndex = 13;
             this.lblMjeSeleccionarItem.Text = "Mensaje";
             this.lblMjeSeleccionarItem.Visible = false;
             // 
@@ -332,23 +345,10 @@
             this.btnVerTodos.Name = "btnVerTodos";
             this.btnVerTodos.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnVerTodos.Size = new System.Drawing.Size(135, 43);
-            this.btnVerTodos.TabIndex = 21;
+            this.btnVerTodos.TabIndex = 12;
             this.btnVerTodos.Text = "Mostrar todo";
             this.btnVerTodos.UseVisualStyleBackColor = false;
             this.btnVerTodos.Click += new System.EventHandler(this.btnVerTodos_Click);
-            // 
-            // lblBuscar
-            // 
-            this.lblBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblBuscar.AutoSize = true;
-            this.lblBuscar.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lblBuscar.Location = new System.Drawing.Point(363, 86);
-            this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(57, 22);
-            this.lblBuscar.TabIndex = 22;
-            this.lblBuscar.Text = "Buscar";
             // 
             // frmListadoArticulos
             // 

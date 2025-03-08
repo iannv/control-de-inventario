@@ -48,6 +48,7 @@
             this.lblCategoria = new System.Windows.Forms.Label();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.cmbMarca = new System.Windows.Forms.ComboBox();
+            this.lblMjeError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picArticulo)).BeginInit();
             this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
@@ -300,12 +301,26 @@
             this.cmbMarca.Size = new System.Drawing.Size(372, 30);
             this.cmbMarca.TabIndex = 5;
             // 
+            // lblMjeError
+            // 
+            this.lblMjeError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblMjeError.AutoSize = true;
+            this.lblMjeError.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMjeError.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblMjeError.Location = new System.Drawing.Point(203, 533);
+            this.lblMjeError.Name = "lblMjeError";
+            this.lblMjeError.Size = new System.Drawing.Size(61, 19);
+            this.lblMjeError.TabIndex = 28;
+            this.lblMjeError.Text = "Mensaje";
+            this.lblMjeError.Visible = false;
+            // 
             // frmNuevoArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(984, 681);
+            this.Controls.Add(this.lblMjeError);
             this.Controls.Add(this.cmbMarca);
             this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.lblMarca);
@@ -362,5 +377,6 @@
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.ComboBox cmbMarca;
+        private System.Windows.Forms.Label lblMjeError;
     }
 }
