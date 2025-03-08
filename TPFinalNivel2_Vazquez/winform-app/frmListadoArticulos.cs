@@ -112,19 +112,19 @@ namespace winform_app
         }
 
 
-        // Método para eliminar
+        // Método para eliminar el artículo
         private void eliminar(int id)
         {
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             Articulo articuloSeleccionado;
+            articuloSeleccionado = (Articulo)dgvListadoArticulos.CurrentRow.DataBoundItem;
 
             try
             {
-                DialogResult dialogResult = MessageBox.Show("¿Desea eliminar definitivamente?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult dialogResult = MessageBox.Show("¿Desea eliminar " + articuloSeleccionado.Nombre + " definitivamente?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    articuloSeleccionado = (Articulo)dgvListadoArticulos.CurrentRow.DataBoundItem;
                     articuloNegocio.eliminarArticulo(articuloSeleccionado.Id);
                     cargarListado();
                 }
@@ -133,7 +133,7 @@ namespace winform_app
         }
 
 
-        // Método para actualizar
+        // Método para actualizar el artículo
         private void actualizar(int id)
         {
             Articulo articuloSeleccionado;
@@ -221,6 +221,8 @@ namespace winform_app
         // Filtro avanzado con opciones en ComboBox
         private void cmbCampo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbCampo.SelectedItem == null) return;
+
             string opcion = cmbCampo.SelectedItem.ToString();
 
             cmbCriterio.Items.Clear();
@@ -238,10 +240,9 @@ namespace winform_app
                 cmbCriterio.Items.Add("Termina con");
                 cmbCriterio.Items.Add("Contiene");
             }
-
-            // Valida si está seleccionado un item
             validarSelectedItem();
         }
+
 
 
         private void cmbCriterio_SelectedIndexChanged(object sender, EventArgs e)
@@ -268,7 +269,6 @@ namespace winform_app
 
                 dgvListadoArticulos.DataSource = articulo.filtrarArticulos(campo, criterio, filtro);
 
-                // Valida si está seleccionado un item
                 if (validarSelectedItem()) return;
 
                 sinResultados();
@@ -286,14 +286,15 @@ namespace winform_app
             try
             {
                 txtFiltro.Clear();
+                txtBuscar.Clear();
+                cmbCampo.SelectedIndex = -1;
+                cmbCriterio.SelectedIndex = -1;
                 cargarListado();
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
 
@@ -344,10 +345,10 @@ namespace winform_app
             {
                 lblMjeSeleccionarItem.Visible = true;
                 lblMjeSeleccionarItem.Text = "El campo filtro está vacío";
-                return true; 
+                return true;
             }
 
-            lblMjeSeleccionarItem.Visible = false; 
+            lblMjeSeleccionarItem.Visible = false;
             return false;
         }
 

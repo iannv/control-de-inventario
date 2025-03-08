@@ -64,7 +64,7 @@
             this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.lblTitulo.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.lblTitulo.Location = new System.Drawing.Point(419, 17);
+            this.lblTitulo.Location = new System.Drawing.Point(434, 17);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(331, 45);
             this.lblTitulo.TabIndex = 0;
@@ -76,7 +76,7 @@
             this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.txtBuscar.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.txtBuscar.Location = new System.Drawing.Point(427, 83);
+            this.txtBuscar.Location = new System.Drawing.Point(442, 83);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(304, 28);
             this.txtBuscar.TabIndex = 1;
@@ -92,17 +92,16 @@
             this.pnlHeader.Controls.Add(this.lblTitulo);
             this.pnlHeader.Location = new System.Drawing.Point(-5, -4);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1168, 132);
+            this.pnlHeader.Size = new System.Drawing.Size(1198, 132);
             this.pnlHeader.TabIndex = 4;
             // 
             // lblBuscar
             // 
-            this.lblBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblBuscar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lblBuscar.Location = new System.Drawing.Point(363, 86);
+            this.lblBuscar.Location = new System.Drawing.Point(378, 86);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(57, 22);
             this.lblBuscar.TabIndex = 22;
@@ -187,10 +186,10 @@
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(985, 168);
+            this.btnAgregar.Location = new System.Drawing.Point(1009, 168);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnAgregar.Size = new System.Drawing.Size(165, 43);
+            this.btnAgregar.Size = new System.Drawing.Size(171, 43);
             this.btnAgregar.TabIndex = 13;
             this.btnAgregar.Text = "Nuevo Artículo";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -204,7 +203,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(138)))), ((int)(((byte)(66)))));
             this.panel1.Location = new System.Drawing.Point(-5, 128);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1362, 10);
+            this.panel1.Size = new System.Drawing.Size(1392, 10);
             this.panel1.TabIndex = 5;
             // 
             // dgvListadoArticulos
@@ -251,7 +250,7 @@
             this.dgvListadoArticulos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvListadoArticulos.RowTemplate.Height = 40;
             this.dgvListadoArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListadoArticulos.Size = new System.Drawing.Size(923, 551);
+            this.dgvListadoArticulos.Size = new System.Drawing.Size(953, 551);
             this.dgvListadoArticulos.TabIndex = 13;
             this.dgvListadoArticulos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListadoArticulos_CellClick);
             this.dgvListadoArticulos.SelectionChanged += new System.EventHandler(this.dgvListadoArticulos_SelectionChanged);
@@ -280,7 +279,7 @@
             // picArticulo
             // 
             this.picArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picArticulo.Location = new System.Drawing.Point(940, 241);
+            this.picArticulo.Location = new System.Drawing.Point(970, 241);
             this.picArticulo.Name = "picArticulo";
             this.picArticulo.Size = new System.Drawing.Size(210, 199);
             this.picArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -355,7 +354,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(1154, 811);
+            this.ClientSize = new System.Drawing.Size(1184, 811);
             this.Controls.Add(this.btnVerTodos);
             this.Controls.Add(this.lblMjeSeleccionarItem);
             this.Controls.Add(this.lblSinRegistro);
@@ -372,7 +371,7 @@
             this.Controls.Add(this.dgvListadoArticulos);
             this.Controls.Add(this.pnlHeader);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.MinimumSize = new System.Drawing.Size(1100, 850);
+            this.MinimumSize = new System.Drawing.Size(1200, 850);
             this.Name = "frmListadoArticulos";
             this.ShowIcon = false;
             this.Text = "Control de inventario";
