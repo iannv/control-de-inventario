@@ -121,7 +121,8 @@ namespace winform_app
 
             try
             {
-                DialogResult dialogResult = MessageBox.Show("¿Desea eliminar " + articuloSeleccionado.Nombre + " definitivamente?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult dialogResult = MessageBox.Show(
+                    $"¿Desea eliminar {articuloSeleccionado.Nombre} ({articuloSeleccionado.Codigo})" + " definitivamente?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (dialogResult == DialogResult.Yes)
                 {

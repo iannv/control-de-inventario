@@ -58,10 +58,10 @@ namespace negocio
             {
                 datos.consulta("INSERT INTO ARTICULOS(Codigo, Nombre, Descripcion, ImagenUrl, IdCategoria, IdMarca, Precio) " +
                     "VALUES (@codigo, @nombre, @descripcion, @img, @categoria, @marca, @precio)");
-                datos.setearParametro("@codigo", articulo.Codigo);
-                datos.setearParametro("@nombre", articulo.Nombre);
-                datos.setearParametro("@descripcion", articulo.Descripcion);
-                datos.setearParametro("@img", articulo.ImagenUrl);
+                datos.setearParametro("@codigo", articulo.Codigo.ToUpper().Trim());
+                datos.setearParametro("@nombre", capitalice(articulo.Nombre.Trim()));
+                datos.setearParametro("@descripcion", capitalice(articulo.Descripcion.Trim()));
+                datos.setearParametro("@img", articulo.ImagenUrl.Trim());
                 datos.setearParametro("@categoria", articulo.IdCategoria.Id);
                 datos.setearParametro("@marca", articulo.IdMarca.Id);
                 datos.setearParametro("@precio", articulo.Precio);
@@ -81,10 +81,10 @@ namespace negocio
                     "Codigo = @cod, Nombre = @nombre, Descripcion = @desc, ImagenUrl = @img, IdCategoria = @cat, " +
                     "IdMarca = @marca, Precio = @precio " +
                     "WHERE Id = @id");
-                datos.setearParametro("cod", articulo.Codigo);
-                datos.setearParametro("@nombre", articulo.Nombre);
-                datos.setearParametro("@desc", articulo.Descripcion);
-                datos.setearParametro("@img", articulo.ImagenUrl);
+                datos.setearParametro("cod", articulo.Codigo.ToUpper().Trim());
+                datos.setearParametro("@nombre", capitalice(articulo.Nombre.Trim()));
+                datos.setearParametro("@desc", capitalice(articulo.Descripcion.Trim()));
+                datos.setearParametro("@img", articulo.ImagenUrl.Trim());
                 datos.setearParametro("@cat", articulo.IdCategoria.Id);
                 datos.setearParametro("@marca", articulo.IdMarca.Id);
                 datos.setearParametro("@precio", articulo.Precio);
@@ -252,6 +252,13 @@ namespace negocio
                 throw;
             }
 
+        }
+
+
+        // Método para la primera letra en mayúscula
+        private string capitalice(string txt)
+        {
+            return char.ToUpper(txt[0]) + txt.Substring(1).ToLower();
         }
     }
 }

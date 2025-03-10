@@ -28,7 +28,7 @@ namespace winform_app
             try
             {
                 if (articulo != null) {
-                    lblTitulo.Text = articulo.Nombre.ToUpper();
+                    lblNombreTitle.Text = articulo.Nombre;
                     lblCodigoA.Text = articulo.Codigo;
                     lblNombreA.Text = articulo.Nombre;
                     lblDescripcionA.Text = articulo.Descripcion;
@@ -62,11 +62,6 @@ namespace winform_app
             Form listado = new frmListadoArticulos();
             listado.Show();
             this.Hide();
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 
