@@ -110,9 +110,14 @@
       <Name>negocio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\banner1.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\no-product-image.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

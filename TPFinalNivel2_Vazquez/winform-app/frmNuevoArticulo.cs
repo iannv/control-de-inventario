@@ -132,7 +132,7 @@ namespace winform_app
                 {
                     cmbCategoria.SelectedIndex = -1;
                     cmbMarca.SelectedIndex = -1;
-
+                    
                     articuloNegocio.agregarArticulo(articulo);
                     MessageBox.Show(articulo.Nombre + " agregado exitosamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
