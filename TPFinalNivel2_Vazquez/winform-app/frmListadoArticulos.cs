@@ -57,7 +57,6 @@ namespace winform_app
                 dgvListadoArticulos.DataSource = listaArticulo;
                 ocultarColumnas();
 
-                //dgvListadoArticulos.Columns["Nombre"].Width = 250;
                 dgvListadoArticulos.Columns["Descripcion"].Width = 280;
                 dgvListadoArticulos.Columns["Editar"].Width = 70;
                 dgvListadoArticulos.Columns["Eliminar"].Width = 70;
@@ -248,7 +247,6 @@ namespace winform_app
 
         private void cmbCriterio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Valida si está seleccionado un item
             validarSelectedItem();
         }
 
@@ -311,11 +309,13 @@ namespace winform_app
             {
                 lblSinRegistro.Visible = true;
                 picArticulo.Visible = false;
+                btnVolverAlListado.Visible = true;
             }
             else
             {
                 lblSinRegistro.Visible = false;
                 picArticulo.Visible = true;
+                btnVolverAlListado.Visible = false;
             }
         }
 

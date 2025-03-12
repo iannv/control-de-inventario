@@ -50,7 +50,6 @@ namespace winform_app
                 cmbMarca.ValueMember = "Id";
                 cmbMarca.DisplayMember = "Descripcion";
 
-                // Los ComboBox se inicializan sin selección
                 cmbCategoria.SelectedIndex = -1;
                 cmbMarca.SelectedIndex = -1;
 
@@ -79,6 +78,7 @@ namespace winform_app
             try
             {
                 if (!validarCampos()) return;
+                if (!validarCaracteresEspeciales()) return;
 
                 if (articulo == null)
                 {
@@ -142,10 +142,12 @@ namespace winform_app
         }
 
 
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
 
 
         // Cargar la imagen de cada articulo en el PictureBox
@@ -198,6 +200,37 @@ namespace winform_app
                     lblMjeError.Visible = true;
                     lblMjeError.Text = "Seleccione la categoría y marca del artículo";
                     cb.Focus();
+                    return false;
+                }
+            }
+            lblMjeError.Visible = false;
+            return true;
+        }
+
+
+
+        // Método para verificar caracteres especiales
+        private bool validarCaracteresEspeciales()
+        {
+            TextBox[] textCodigo = { txtCodigo };
+            TextBox[] textNombre = { txtNombre };
+
+            foreach (TextBox txt in textCodigo)
+            {
+                if (txt.Text.Any(c => (char.IsSymbol(c) || char.IsPunctuation(c)) && c != '-'))
+                {
+                    lblMjeError.Visible = true;
+                    lblMjeError.Text = "Único caracter permitido para el código: -";
+                    return false;
+                }
+            }
+
+            foreach (TextBox txt in textNombre)
+            {
+                if (txt.Text.Any(n => (char.IsSymbol(n) || char.IsPunctuation(n))))
+                {
+                    lblMjeError.Visible = true;
+                    lblMjeError.Text = "El nombre contiene caracteres no permitidos";
                     return false;
                 }
             }
