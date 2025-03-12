@@ -72,7 +72,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Validaciones\Validaciones.cs" />
     <EmbeddedResource Include="frmListadoArticulos.resx">
       <DependentUpon>frmListadoArticulos.cs</DependentUpon>
     </EmbeddedResource>
