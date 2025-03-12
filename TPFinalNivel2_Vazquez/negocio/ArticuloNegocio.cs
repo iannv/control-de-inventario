@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -58,6 +59,7 @@ namespace negocio
             {
                 datos.consulta("INSERT INTO ARTICULOS(Codigo, Nombre, Descripcion, ImagenUrl, IdCategoria, IdMarca, Precio) " +
                     "VALUES (@codigo, @nombre, @descripcion, @img, @categoria, @marca, @precio)");
+
                 datos.setearParametro("@codigo", articulo.Codigo.ToUpper().Trim());
                 datos.setearParametro("@nombre", capitalice(articulo.Nombre.Trim()));
                 datos.setearParametro("@descripcion", capitalice(articulo.Descripcion.Trim()));
@@ -81,7 +83,8 @@ namespace negocio
                     "Codigo = @cod, Nombre = @nombre, Descripcion = @desc, ImagenUrl = @img, IdCategoria = @cat, " +
                     "IdMarca = @marca, Precio = @precio " +
                     "WHERE Id = @id");
-                datos.setearParametro("cod", articulo.Codigo.ToUpper().Trim());
+
+                datos.setearParametro("@cod", articulo.Codigo.ToUpper().Trim());
                 datos.setearParametro("@nombre", capitalice(articulo.Nombre.Trim()));
                 datos.setearParametro("@desc", capitalice(articulo.Descripcion.Trim()));
                 datos.setearParametro("@img", articulo.ImagenUrl.Trim());
@@ -90,7 +93,7 @@ namespace negocio
                 datos.setearParametro("@precio", articulo.Precio);
                 datos.setearParametro("@id", articulo.Id);
 
-                datos.ejecutarAccion();
+                datos.ejecutarAccion();                
             }
             catch (Exception ex) { throw ex; }
         }
