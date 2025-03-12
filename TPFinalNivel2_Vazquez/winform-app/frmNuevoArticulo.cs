@@ -50,7 +50,6 @@ namespace winform_app
                 cmbMarca.ValueMember = "Id";
                 cmbMarca.DisplayMember = "Descripcion";
 
-                // Los ComboBox se inicializan sin selección
                 cmbCategoria.SelectedIndex = -1;
                 cmbMarca.SelectedIndex = -1;
 
