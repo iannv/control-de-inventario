@@ -311,11 +311,13 @@ namespace winform_app
             {
                 lblSinRegistro.Visible = true;
                 picArticulo.Visible = false;
+                btnVolverAlListado.Visible = true;
             }
             else
             {
                 lblSinRegistro.Visible = false;
                 picArticulo.Visible = true;
+                btnVolverAlListado.Visible = false;
             }
         }
 

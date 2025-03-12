@@ -63,9 +63,9 @@ namespace winform_app.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap banner1 {
+        internal static System.Drawing.Bitmap iconmonstr_arrow_64_24 {
             get {
-                object obj = ResourceManager.GetObject("banner1", resourceCulture);
+                object obj = ResourceManager.GetObject("iconmonstr-arrow-64-24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace winform_app.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap banner2 {
+        internal static System.Drawing.Bitmap iconmonstr_arrow_64_64 {
             get {
-                object obj = ResourceManager.GetObject("banner2", resourceCulture);
+                object obj = ResourceManager.GetObject("iconmonstr-arrow-64-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
